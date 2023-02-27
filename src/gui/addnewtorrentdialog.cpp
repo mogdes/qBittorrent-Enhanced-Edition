@@ -31,6 +31,7 @@
 #include <algorithm>
 
 #include <QAction>
+#include <QDateTime>
 #include <QDebug>
 #include <QDir>
 #include <QFileDialog>
@@ -49,6 +50,7 @@
 #include "base/bittorrent/torrentcontentlayout.h"
 #include "base/global.h"
 #include "base/net/downloadmanager.h"
+#include "base/preferences.h"
 #include "base/settingsstorage.h"
 #include "base/torrentfileguard.h"
 #include "base/utils/compare.h"
@@ -401,8 +403,9 @@ void AddNewTorrentDialog::show(const QString &source, const BitTorrent::AddTorre
     {
         // Launch downloader
         Net::DownloadManager::instance()->download(
-                    Net::DownloadRequest(source).limit(MAX_TORRENT_SIZE)
-                    , dlg, &AddNewTorrentDialog::handleDownloadFinished);
+                Net::DownloadRequest(source).limit(MAX_TORRENT_SIZE)
+                , Preferences::instance()->useProxyForGeneralPurposes()
+                , dlg, &AddNewTorrentDialog::handleDownloadFinished);
         return;
     }
 

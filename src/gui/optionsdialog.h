@@ -86,7 +86,7 @@ public slots:
     void showConnectionTab();
 
 private slots:
-    void enableProxy(int index);
+    void adjustProxyOptions();
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
     void applySettings();
@@ -172,7 +172,6 @@ private:
     int getMaxSeedingMinutes() const;
     // Proxy options
     bool isProxyEnabled() const;
-    bool isProxyAuthEnabled() const;
     QString getProxyIp() const;
     unsigned short getProxyPort() const;
     QString getProxyUsername() const;

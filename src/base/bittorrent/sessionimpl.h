@@ -233,8 +233,6 @@ namespace BitTorrent
         void setMaxActiveCheckingTorrents(int val) override;
         bool isProxyPeerConnectionsEnabled() const override;
         void setProxyPeerConnectionsEnabled(bool enabled) override;
-        bool isProxyHostnameLookupEnabled() const override;
-        void setProxyHostnameLookupEnabled(bool enabled) override;
         ChokingAlgorithm chokingAlgorithm() const override;
         void setChokingAlgorithm(ChokingAlgorithm mode) override;
         SeedChokingAlgorithm seedChokingAlgorithm() const override;
@@ -654,7 +652,6 @@ namespace BitTorrent
         CachedSettingValue<int> m_encryption;
         CachedSettingValue<int> m_maxActiveCheckingTorrents;
         CachedSettingValue<bool> m_isProxyPeerConnectionsEnabled;
-        CachedSettingValue<bool> m_isProxyHostnameLookupEnabled;
         CachedSettingValue<ChokingAlgorithm> m_chokingAlgorithm;
         CachedSettingValue<SeedChokingAlgorithm> m_seedChokingAlgorithm;
         CachedSettingValue<QStringList> m_storedTags;
