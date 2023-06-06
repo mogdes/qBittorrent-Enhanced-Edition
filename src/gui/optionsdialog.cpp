@@ -1875,7 +1875,7 @@ void OptionsDialog::on_IPSubnetWhitelistButton_clicked()
 
 void OptionsDialog::on_fetchButton_clicked()
 {
-    Net::DownloadHandler *m_fetchHandler = Net::DownloadManager::instance()->download(Preferences::instance()->customizeTrackersListUrl());
+    Net::DownloadHandler *m_fetchHandler = Net::DownloadManager::instance()->download(Net::DownloadRequest(Preferences::instance()->customizeTrackersListUrl()), Preferences::instance()->useProxyForGeneralPurposes());
     connect(m_fetchHandler, &Net::DownloadHandler::finished, this, &OptionsDialog::handlePublicTrackersListChanged);
 }
 
